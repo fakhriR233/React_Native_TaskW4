@@ -1,9 +1,13 @@
-# NativeBase TypeScript Expo Template
+# NativeBase TypeScript <<<BAHAYA BANGET>>> Expo Template
 
-The official NativeBase TypeScript template for [Expo](https://docs.expo.io/)
+Gaya-gayaan pake TypeScript Astagfirullah
 
 ## Usage
 
 ```sh
 expo init my-app --template @native-base/expo-template-typescript
+```
+
+```sh
+NTAR DATA MASUK NANGIS KALO ERROR
 ```
