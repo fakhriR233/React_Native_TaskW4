@@ -18,8 +18,15 @@ import { AntDesign } from "@expo/vector-icons";
 import Footer from "../components/Footer";
 import { MaterialIcons } from "@expo/vector-icons";
 import CardDashboard from "../components/CardDashboard";
+import MyTabs from "../routes/TabRoutes";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { StackParamList } from "../routes/Routes";
 
-const Dashboard = () => {
+interface Props {
+  navigation: NativeStackNavigationProp<StackParamList, "Detail">;
+}
+
+const Dashboard = ({ navigation }: Props) => {
   const [service, setService] = React.useState("");
   return (
     <>
@@ -121,13 +128,12 @@ const Dashboard = () => {
       </VStack>
       <ScrollView flex="1">
         <VStack space={1} justifyContent="center" mx="6">
-          <CardDashboard />
-          <CardDashboard />
-          <CardDashboard />
-          <CardDashboard />
+          <CardDashboard navigation={navigation} />
+          <CardDashboard navigation={navigation} />
+          <CardDashboard navigation={navigation} />
+          <CardDashboard navigation={navigation} />
         </VStack>
       </ScrollView>
-      <Footer />
     </>
   );
 };

@@ -11,10 +11,16 @@ import {
   HStack,
   Link,
 } from "native-base";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { StackParamList } from "./HomeScreen";
 
 const LoginImg = require("../assets/LoginIcon.png");
 
-const RegisterScreen = () => {
+interface Props {
+  navigation: NativeStackNavigationProp<StackParamList, "Dashboard", "Login">;
+}
+
+const RegisterScreen = ({ navigation }: Props) => {
   return (
     <View>
       <VStack space={3} justifyContent="center" mx="6">
@@ -34,7 +40,10 @@ const RegisterScreen = () => {
           <FormControl>
             <Input placeholder="Password" fontSize="bold" type="password" />
           </FormControl>
-          <Button colorScheme="pink">
+          <Button
+            colorScheme="pink"
+            onPress={() => navigation.navigate("Dashboard")}
+          >
             <Text fontSize="lg" color="white" bold>
               Register
             </Text>
@@ -56,7 +65,7 @@ const RegisterScreen = () => {
                 fontSize: "sm",
                 textDecoration: "none",
               }}
-              href="#"
+              onPress={() => navigation.navigate("Login")}
             >
               Login
             </Link>

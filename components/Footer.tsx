@@ -4,9 +4,15 @@ import { View, Text, Box, Center, HStack, Pressable, Icon } from "native-base";
 
 import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { StackParamList } from "../routes/Routes";
 
-const Footer = () => {
-  const [selected, setSelected] = React.useState(1);
+interface Props {
+  navigation: NativeStackNavigationProp<StackParamList, "Dashboard">;
+}
+
+const Footer = ({ navigation }: Props) => {
+  const [selected, setSelected] = React.useState<number>();
   return (
     <View>
       <Box
@@ -30,7 +36,10 @@ const Footer = () => {
             opacity={selected === 0 ? 1 : 0.5}
             py="3"
             flex={1}
-            onPress={() => setSelected(0)}
+            onPress={() => {
+              setSelected(0);
+              navigation.navigate("Dashboard");
+            }}
           >
             <Center>
               <Icon
@@ -53,7 +62,10 @@ const Footer = () => {
             opacity={selected === 1 ? 1 : 0.5}
             py="2"
             flex={1}
-            onPress={() => setSelected(1)}
+            onPress={() => {
+              setSelected(1);
+              navigation.navigate("Dashboard");
+            }}
           >
             <Center>
               <Icon
@@ -74,7 +86,10 @@ const Footer = () => {
             opacity={selected === 2 ? 1 : 0.6}
             py="2"
             flex={1}
-            onPress={() => setSelected(2)}
+            onPress={() => {
+              setSelected(2);
+              navigation.navigate("Dashboard");
+            }}
           >
             <Center>
               <Icon

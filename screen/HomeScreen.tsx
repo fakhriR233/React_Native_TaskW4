@@ -1,11 +1,17 @@
 import { StyleSheet, View } from "react-native";
 import React from "react";
 import { Center, HStack, Image, VStack, Text, Button } from "native-base";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { StackParamList } from "../routes/Routes";
 
 const WaysVector = require("../assets/LandingImg.png");
 const WaysTodoLogo = require("../assets/WaysToDO.png");
 
-const HomeScreen = () => {
+interface Props {
+  navigation: NativeStackNavigationProp<StackParamList, "Login", "Register">;
+}
+
+const HomeScreen: React.FC<Props> = ({ navigation }) => {
   return (
     <View>
       <VStack space={3} justifyContent="center">
@@ -20,12 +26,23 @@ const HomeScreen = () => {
           </Text>
         </VStack>
       </VStack>
-      <Button colorScheme="pink" mx="8" mt="16">
+      <Button
+        colorScheme="pink"
+        mx="8"
+        mt="16"
+        onPress={() => navigation.navigate("Login")}
+      >
         <Text fontSize="lg" color="white" bold>
           Login
         </Text>
       </Button>
-      <Button colorScheme="blueGray" opacity="40%" mx="8" my="4">
+      <Button
+        colorScheme="blueGray"
+        opacity="40%"
+        mx="8"
+        my="4"
+        onPress={() => navigation.navigate("Register")}
+      >
         <Text fontSize="lg" color="white" bold>
           Register
         </Text>
